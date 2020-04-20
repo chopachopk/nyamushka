@@ -1,0 +1,55 @@
+.page-main {
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0;
+
+  &::before {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+  }
+
+  color: $white;
+
+  background: linear-gradient(0deg, $black 0%, rgba($black, 0) 50%, $black 100%), url("../img/pattern@1x.jpg"), $black;
+
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    background: linear-gradient(0deg, $black 0%, rgba($black, 0) 50%, $black 100%), url("../img/pattern@2x.jpg") top left / 70px 70px, $black;
+  }
+}
+
+.page-main__wrapper {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.page-main__title {
+  margin: 24px 0;
+
+  @include exo2;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.page-main__food-list {
+  @include reset-list;
+}
+
+@media (max-width: $tablet-width) {
+
+}
+
+@media (max-width: $mobile-width) {
+  .page-main__title {
+    width: 320px;
+  }
+}

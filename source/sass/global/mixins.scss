@@ -1,0 +1,14 @@
+@mixin exo2 {
+  font-family: "Exo 2.0", "Trebuchet MS", "Helvetica", sans-serif;
+}
+
+@mixin trebuchet {
+  font-family: "Trebuchet MS", "Helvetica", sans-serif;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
