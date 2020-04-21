@@ -17,8 +17,13 @@
   padding: 4px;
 
   text-decoration: none;
+
+  @include bevel-bg($blue);
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba($blue, 0) 5.3%, rgba($blue, 1) 5.3%);
+
+  &:hover {
+    @include recolor-card($light-blue);
+  }
 }
 
 .food__card {
@@ -33,11 +38,26 @@
 
   color: $grey-text;
 
-  background: url("../img/cat@1x.png") top 203px left -28px no-repeat, linear-gradient(135deg, rgba($white, 0) 5.3%, rgba($white, 1) 5.3%);
+  background: linear-gradient(135deg, rgba($white, 0) 28.5px, $white 28.5px);
   border-radius: 9px;
 
-  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background: url("../img/cat@2x.png") top 203px left -28px / 370px 362px no-repeat, linear-gradient(135deg, rgba($white, 0) 5.3%, rgba($white, 1) 5.3%);
+  & > * {
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 9px;
+    background: url("../img/cat@1x.png") top 203px left -28px no-repeat;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background: url("../img/cat@2x.png") top 203px left -28px / 370px 362px no-repeat;
+    }
   }
 }
 
@@ -104,6 +124,48 @@
   color: $blue;
   text-decoration: none;
   border-bottom: 1px dashed $blue;
+
+  &:hover {
+    color: $light-blue;
+    border-bottom: 1px dashed $light-blue;
+  }
+}
+
+.food__item--selected {
+  .food__card-link {
+    @include recolor-card($pink);
+
+    &:hover {
+      @include recolor-card($light-pink);
+
+      .food__tagline {
+        color: $light-pink;
+      }
+    }
+  }
+}
+
+.food__item--disabled {
+  .food__card-link {
+    @include recolor-card($grey);
+    cursor: default;
+  }
+
+  .food__card {
+    color: $light-grey;
+
+    &::before {
+      opacity: 0.5;
+    }
+  }
+
+  .food__name {
+    color: $light-grey;
+  }
+
+  .food__descriptor {
+    color: $yellow;
+  }
 }
 
 @media (max-width: $tablet-width) {

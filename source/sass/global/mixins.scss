@@ -12,3 +12,15 @@
 
   list-style: none;
 }
+
+@mixin bevel-bg ($color) {
+  background: linear-gradient(135deg, rgba($color, 0) 30px, $color 30px);
+}
+
+@mixin recolor-card ($color) {
+  @include bevel-bg($color);
+
+  .food__amount {
+    background-color: $color;
+  }
+}
