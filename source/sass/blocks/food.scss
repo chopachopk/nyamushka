@@ -9,26 +9,60 @@
   @include trebuchet;
 }
 
+.food__card-wrapper {
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+  box-sizing: border-box;
+  width: 320px;
+  height: 480px;
+  padding: 4px;
+  border-radius: 12px;
+
+  &::before {
+    position: absolute;
+    top: -55px;
+    left: -55px;
+    z-index: -1;
+    padding: 45px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 600px $blue;
+    content: "";
+  }
+}
+
 .food__card {
+  overflow: hidden;
+  z-index: 0;
   position: relative;
   display: flex;
   flex-direction: column;
 
   box-sizing: border-box;
-  width: 320px;
-  height: 480px;
+  width: 312px;
+  height: 472px;
   padding: 17px 11px 11px 45px;
 
   color: $grey-text;
 
   // clip-path: polygon(43px 0, 100% 0%, 100% 100%, 0% 100%, 0 43px);
 
-  background: url("../img/cat@1x.png") top 203px left -28px no-repeat $white;
-  border: 4px solid $blue;
-  border-radius: 12px;
+  background: url("../img/cat@1x.png") top 203px left -28px no-repeat;
+  border-radius: 9px;
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background: url("../img/cat@2x.png") top 203px left -28px / 370px 362px no-repeat $white;
+    background: url("../img/cat@2x.png") top 203px left -28px / 370px 362px no-repeat;
+  }
+
+  &::before {
+    position: absolute;
+    top: -56px;
+    left: -56px;
+    z-index: -1;
+    padding: 45px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 600px $white;
+    content: "";
   }
 }
 
